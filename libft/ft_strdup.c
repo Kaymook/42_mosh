@@ -6,7 +6,7 @@
 /*   By: kmoshker <kmoshker@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 19:34:24 by kmoshker          #+#    #+#             */
-/*   Updated: 2023/10/16 20:57:56 by kmoshker         ###   ########.fr       */
+/*   Updated: 2023/10/18 03:35:52 by kmoshker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ char	*ft_strdup(const char *s1)
 	char	*new;
 	int		count;
 
-	if (!s1)
-		return (NULL);
+	// if (!s1)
+	// 	return (NULL);
 	count = ft_strlen(s1);
 	new = (char *)malloc((count + 1) * (sizeof(char)));
 	if (new == NULL)

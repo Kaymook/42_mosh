@@ -6,7 +6,7 @@
 /*   By: kmoshker <kmoshker@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 23:21:40 by kmoshker          #+#    #+#             */
-/*   Updated: 2023/10/16 20:57:04 by kmoshker         ###   ########.fr       */
+/*   Updated: 2023/10/18 03:28:34 by kmoshker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,9 @@ static char	*ft_strcpy(char *dst, const char *src)
 static char	*ft_strcat(char *dst, const char *src)
 {
 	int				num1;
-	int				num2;
 	size_t			i;
 
 	num1 = ft_strlen(dst);
-	num2 = ft_strlen(src);
 	i = 0;
 	while (src[i] != '\0')
 	{
@@ -51,9 +49,9 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	if (!s1 && !s2)
 		return (NULL);
 	else if (!s1)
-		return (ft_strdup(s2));
-	else
-		(ft_strdup(s1));
+		return ((char *)s2);
+	else if (!s2)
+		return ((char *)s1);
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	new = (char *)malloc((len1 + len2 + 1) * sizeof(char));
