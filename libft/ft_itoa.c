@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*make_new(char *new, int n, int is_minus, int count)
+static char	*make_new(char *new, int n, int is_minus, int count)
 {
 	new[count] = '\0';
 	while (n)
