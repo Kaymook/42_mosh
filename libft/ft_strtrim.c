@@ -31,6 +31,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (!s1)
 		return (NULL);
+	if (!set)
+		return (ft_strdup((char *)s1);
 	while (*s1 && charset(s1, set))
 		s1++;
 	from_end = ft_strchr(s1, '\0') - 1;
