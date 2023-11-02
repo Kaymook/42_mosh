@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mosh <mosh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kmoshker <kmoshker@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 06:49:16 by mosh              #+#    #+#             */
-/*   Updated: 2023/10/24 06:50:48 by mosh             ###   ########.fr       */
+/*   Updated: 2023/11/02 19:21:31 by kmoshker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	 ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
-	int	 len;
+	int	len;
 
 	len = 0;
 	while (*s)
@@ -41,11 +41,10 @@ static char	*ft_strcpy(char *dst, const char *src)
 	return (dst);
 }
 
-
-char *ft_strcat(char *dst, const char *src)
+char	*ft_strcat(char *dst, const char *src)
 {
-	int num1;
-	int	 i;
+	int	num1;
+	int	i;
 
 	num1 = ft_strlen(dst);
 	i = 0;

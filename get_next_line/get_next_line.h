@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mosh <mosh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kmoshker <kmoshker@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:24:22 by kmoshker          #+#    #+#             */
-/*   Updated: 2023/10/24 07:01:11 by mosh             ###   ########.fr       */
+/*   Updated: 2023/11/02 19:19:57 by kmoshker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*delete_and_renew(char *remember_me);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strcat(char *dst, const char *src);
 char	*ft_strjoin(char *s1, char *s2);
-int 	ft_strlen(const char *s);
+int		ft_strlen(const char *s);
 char	*ft_strdup(char *s1);
 
 #endif

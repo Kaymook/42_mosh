@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mosh <mosh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kmoshker <kmoshker@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 06:56:33 by mosh              #+#    #+#             */
-/*   Updated: 2023/10/24 07:10:23 by mosh             ###   ########.fr       */
+/*   Updated: 2023/11/02 19:16:22 by kmoshker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
@@ -28,7 +28,7 @@ char	*delete_and_renew(char *remember_me);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strcat(char *dst, const char *src);
 char	*ft_strjoin(char *s1, char *s2);
-int 	ft_strlen(const char *s);
+int		ft_strlen(const char *s);
 char	*ft_strdup(char *s1);
 
 #endif

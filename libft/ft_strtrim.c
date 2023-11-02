@@ -6,7 +6,7 @@
 /*   By: kmoshker <kmoshker@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 00:31:06 by kmoshker          #+#    #+#             */
-/*   Updated: 2023/10/03 19:48:07 by kmoshker         ###   ########.fr       */
+/*   Updated: 2023/11/02 19:07:21 by kmoshker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!s1)
 		return (NULL);
 	if (!set)
-		return (ft_strdup((char *)s1);
+		return (ft_strdup((char *)s1));
 	while (*s1 && charset(s1, set))
 		s1++;
 	from_end = ft_strchr(s1, '\0') - 1;

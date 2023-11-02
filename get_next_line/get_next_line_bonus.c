@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mosh <mosh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kmoshker <kmoshker@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 06:55:51 by mosh              #+#    #+#             */
-/*   Updated: 2023/10/24 07:09:17 by mosh             ###   ########.fr       */
+/*   Updated: 2023/11/02 19:22:33 by kmoshker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
-char *ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	char *new;
+	char	*new;
 
 	if (!s1 && !s2)
 	{
@@ -40,25 +40,26 @@ char *ft_strjoin(char *s1, char *s2)
 
 char	*develop_remember_me(char *remember_me, int fd)
 {
-		char		develop[BUFFER_SIZE + 1];
-		int			bytes_to_read;
+	char		develop[BUFFER_SIZE + 1];
+	int			bytes_to_read;
 
-		bytes_to_read = 1;
-		while (bytes_to_read > 0 && !ft_strchr(remember_me, '\n'))
+	bytes_to_read = 1;
+	while (bytes_to_read > 0 && !ft_strchr(remember_me, '\n'))
+	{
+		bytes_to_read = read(fd, develop, BUFFER_SIZE);
+		if (bytes_to_read <= -1)
+			return (NULL);
+		if (bytes_to_read == 0
+			&& (!remember_me || ft_strlen(remember_me) == 0))
 		{
-			bytes_to_read = read(fd, develop, BUFFER_SIZE);
-			if (bytes_to_read <= -1)
-				return (NULL);
-			if (bytes_to_read == 0 && (!remember_me || ft_strlen(remember_me) == 0))
-			{
-				if (remember_me)
-					free(remember_me);
-				return (NULL);
-			}
-			develop[bytes_to_read] = '\0';
-			remember_me = ft_strjoin(remember_me, develop);
+			if (remember_me)
+				free(remember_me);
+			return (NULL);
 		}
-		return (remember_me);
+		develop[bytes_to_read] = '\0';
+		remember_me = ft_strjoin(remember_me, develop);
+	}
+	return (remember_me);
 }
 
 char	*output_line_until(char *remember_me)
@@ -90,7 +91,8 @@ char	*delete_and_renew(char *remember_me)
 {
 	int		i;
 	int		j;
-	char 	*forget_me;
+	char	*forget_me;
+
 	i = 0;
 	while (remember_me[i] && remember_me[i] != '\n')
 		i++;
@@ -107,19 +109,18 @@ char	*delete_and_renew(char *remember_me)
 	if (ft_strlen(forget_me) == 0)
 	{
 		free (forget_me);
-		return (NULL);	
+		return (NULL);
 	}
 	return (forget_me);
 }
 
-
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	static char *remember_me[OPEN_MAX];
+	static char	*remember_me[OPEN_MAX];
 	char		*output_line;
 
 	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0)
-		return (0);	
+		return (0);
 	remember_me[fd] = develop_remember_me(remember_me[fd], fd);
 	if (!remember_me[fd] || ft_strlen(remember_me[fd]) == 0)
 		return (NULL);
@@ -127,37 +128,3 @@ char *get_next_line(int fd)
 	remember_me[fd] = delete_and_renew(remember_me[fd]);
 	return (output_line);
 }
-
-// #include <fcntl.h>   // for open
-// #include <stdio.h>   // for printf and perror
-
-// int main(int argc, char **argv)
-// {
-//     int fd1, fd2;
-//     char *line;
-
-//     if (argc != 2)
-//     {
-//         printf("Usage: %s <filename>\n", argv[0]);
-//         return (1);
-//     }
-
-//     // ファイルをオープン
-//     fd = open(argv[1], O_RDONLY);
-//     if (fd == -1)
-//     {
-//         perror("Error opening file");
-//         return (1);
-//     }
-
-//     // get_next_line関数を使用して、ファイルの各行を表示
-//     while ((line = get_next_line(fd)) != NULL)
-//     {
-//         printf("%s\n", line);
-//         free(line);
-//     }
-
-//     // ファイルをクローズ
-//     close(fd);
-//     return (0);
-// }
