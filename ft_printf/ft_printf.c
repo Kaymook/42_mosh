@@ -12,24 +12,24 @@
 
 #include "ft_printf.h"
 
-size_t ft_strlen(const char *s)
-{
-	size_t len;
+// size_t ft_strlen(const char *s)
+// {
+// 	size_t len;
 
-	len = 0;
-	while (*s)
-	{
-		len++;
-		s++;
-	}
-	return (len);
-}
+// 	len = 0;
+// 	while (*s)
+// 	{
+// 		len++;
+// 		s++;
+// 	}
+// 	return (len);
+// }
 
-size_t ft_putchar_fd(int c, int fd)
-{
-	write(fd, &c, 1);
-	return (1);
-}
+// size_t ft_putchar_fd(int c, int fd)
+// {
+// 	write(fd, &c, 1);
+// 	return (1);
+// }
 
 size_t ft_putstr_fd(char *str, int fd)
 {
