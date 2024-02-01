@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdint.h>
 #include "ft_printf.h"
-
-// #include "libft.h"
 
 size_t ft_strlen(const char *s)
 {
@@ -154,54 +150,6 @@ size_t ft_putnbr_fd(int n, int fd)
 	return (count);
 }
 
-// static size_t	conversion_to(va_list ap, const char format)
-// {
-// 	size_t count;
-
-// 	count = 0;
-// 	if (format == 'c')
-// 		count += ft_putchar_fd(va_arg(ap, int), 1);
-// 	else if (format == 's')
-// 		count += ft_putstr_fd(va_arg(ap, char *), 1);
-// 	else if (format == 'p')
-// 		count += ft_putptr_fd((uintptr_t)va_arg(ap, void *), 1);
-// 	else if (format == 'd' || format == 'i')
-// 		count += ft_putnbr_fd(va_arg(ap, int), 1);
-// 	else if (format == 'u')
-// 		count += ft_put_unsigned_nbr((unsigned int)va_arg(ap, unsigned int));
-// 	else if (format == 'x')
-// 		count += ft_puthex_small(va_arg(ap, int));
-// 	else if (format == 'X')
-// 		count += ft_puthex_big(va_arg(ap, int));
-// 	else if (format == '%')
-// 		count += ft_putchar_fd('%', 1);
-// 	return (count);
-// }
-
-// int ft_printf(const char *format, ...)
-// {
-// 	va_list ap;
-// 	size_t 	count;
-// 	size_t	i;
-
-// 	count = 0;
-// 	i = 0;
-// 	va_start(ap, format);
-// 	while (format[i])
-// 	{
-// 		if (format[i] == '%')
-// 		{
-// 			i++;
-// 			count += conversion_to(ap,format[i]);
-// 		}
-// 		else
-// 			count += ft_putchar_fd(format[i], 1);
-// 		i++;
-// 	}
-// 	va_end(ap);
-// 	return (count);
-// }
-
 int ft_printf(const char *format, ...)
 {
 	va_list ap;
@@ -241,26 +189,24 @@ int ft_printf(const char *format, ...)
 	return (count);
 }
 
-// ft_printfの宣言
+int main() {
+    char *test_str = "Hello, World!";
+    int test_int = -123;
+    unsigned int test_uint = 123;
+    int *test_ptr = &test_int;
 
-// int main() {
-//     char *test_str = "Hello, World!";
-//     int test_int = -123;
-//     unsigned int test_uint = 123;
-//     int *test_ptr = &test_int;
+    printf("Original printf:\n");
+    printf("String: %s\n", test_str);
+    printf("Int: %d\n", test_int);
+    printf("Unsigned Int: %u\n", test_uint);
+    printf("Pointer: %p\n", test_ptr);
 
-//     printf("Original printf:\n");
-//     printf("String: %s\n", test_str);
-//     printf("Int: %d\n", test_int);
-//     printf("Unsigned Int: %u\n", test_uint);
-//     printf("Pointer: %p\n", test_ptr);
-
-//     printf("\nCustom ft_printf:\n");
-//     ft_printf("String: %s\n", test_str);
-//     ft_printf("Int: %d\n", test_int);
-//     ft_printf("Unsigned Int: %u\n", test_uint);
-//     ft_printf("Pointer: %p\n", test_ptr);
-
+    printf("\nCustom ft_printf:\n");
+    ft_printf("String: %s\n", test_str);
+    ft_printf("Int: %d\n", test_int);
+    ft_printf("Unsigned Int: %u\n", test_uint);
+    ft_printf("Pointer: %p\n", test_ptr);
+}
 // int main()
 // {
 // 	printf("%c", '0');
@@ -285,8 +231,6 @@ int ft_printf(const char *format, ...)
 // 	printf("\n");
 
 //     return 0;
-// }
-
 // }
 // int main()
 // {
@@ -329,8 +273,6 @@ int ft_printf(const char *format, ...)
 // 	printf(" %x ", 42);
 // 	printf(" %x ", -42);
 
-// 	printf("僕のコード\n");
-
 // 		printf(" %x ", 0);
 // 	printf(" %x ", -1);
 // 	printf(" %x ", 1);
@@ -365,8 +307,6 @@ int ft_printf(const char *format, ...)
 // 	printf(" %%   %%   %% \n");
 // 	printf("%%\n");
 // 	printf("%% %%\n");
-	
-// 	printf("僕のテスト：\n");
 
 // 		printf(" %% \n");
 // 	ft_printf(" %%%% \n");
@@ -375,7 +315,4 @@ int ft_printf(const char *format, ...)
 // 	ft_printf(" %%   %%   %% \n");
 // 	ft_printf("%%\n");
 // 	ft_printf("%% %%\n");
-
-
-
 // }

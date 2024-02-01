@@ -1,7 +1,7 @@
 NAME = libftprintf.a
 SRCS = ft_printf.c
 OBJS = ${SRCS:.c=.o}
-LIBFT_PATH = ../../libft
+LIBFT_PATH = ../libft
 LIBFT = $(LIBFT_PATH)/libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror

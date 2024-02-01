@@ -33,5 +33,4 @@ size_t ft_put_unsigned_nbr(unsigned int n);
 size_t ft_putnbr_fd(int n, int fd);
 int ft_printf(const char *format, ...);
 
-
 #endif
