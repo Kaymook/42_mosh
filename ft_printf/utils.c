@@ -1,13 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kmoshker <kmoshker@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/02 22:40:53 by kmoshker          #+#    #+#             */
+/*   Updated: 2024/02/02 22:45:08 by kmoshker         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-size_t ft_putstr_fd(char *str, int fd)
+size_t	ft_putstr_fd(char *str, int fd)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (!str)
 		return (ft_putstr_fd("(null)", 1));
-
 	while (str[i])
 	{
 		ft_putchar_fd(str[i], fd);
@@ -16,13 +27,14 @@ size_t ft_putstr_fd(char *str, int fd)
 	return (i);
 }
 
-size_t ft_putptr_fd(uintptr_t ptr, int fd)
+size_t	ft_putptr_fd(uintptr_t ptr, int fd)
 {
-	char *hex_digits = "0123456789abcdef";
-	char buffer[20];
-	size_t i;
-	size_t count;
+	char	*hex_digits;
+	char	buffer[20];
+	size_t	i;
+	size_t	count;
 
+	hex_digits = "0123456789abcdef";
 	i = 0;
 	count = 0;
 	if (!ptr)
@@ -41,13 +53,14 @@ size_t ft_putptr_fd(uintptr_t ptr, int fd)
 	return (count);
 }
 
-size_t ft_puthex_small(unsigned int num)
+size_t	ft_puthex_small(unsigned int num)
 {
-	char *hex_digits = "0123456789abcdef";
-	char buff[10];
-	size_t i;
-	size_t count;
+	char	*hex_digits;
+	char	buff[10];
+	size_t	i;
+	size_t	count;
 
+	hex_digits = "0123456789abcdef";
 	i = 0;
 	count = 0;
 	if (num == 0)
@@ -62,13 +75,14 @@ size_t ft_puthex_small(unsigned int num)
 	return (count);
 }
 
-size_t ft_puthex_big(unsigned int num)
+size_t	ft_puthex_big(unsigned int num)
 {
-	char *hex_digits = "0123456789ABCDEF";
-	char buff[10];
-	size_t i;
-	size_t count;
+	char	*hex_digits;
+	char	buff[10];
+	size_t	i;
+	size_t	count;
 
+	hex_digits = "0123456789ABCDEF";
 	i = 0;
 	count = 0;
 	if (num == 0)
@@ -83,9 +97,9 @@ size_t ft_puthex_big(unsigned int num)
 	return (count);
 }
 
-size_t ft_put_unsigned_nbr(unsigned int n)
+size_t	ft_put_unsigned_nbr(unsigned int n)
 {
-	size_t count;
+	size_t	count;
 
 	count = 0;
 	if (n == 0)

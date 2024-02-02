@@ -1,7 +1,7 @@
 NAME = libftprintf.a
-SRCS = ft_printf.c
+SRCS = ft_printf.c utils.c
 OBJS = ${SRCS:.c=.o}
-LIBFT_PATH = ../libft
+LIBFT_PATH = ./libft
 LIBFT = $(LIBFT_PATH)/libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -16,6 +16,8 @@ all: ${NAME}
 $(NAME): $(LIBFT) ${OBJS}
 	cp $(LIBFT) $(NAME)
 	${AR} ${NAME} ${OBJS}
+
+# cc ${SRCS}
 
 $(LIBFT):
 	make -C $(LIBFT_PATH) all
