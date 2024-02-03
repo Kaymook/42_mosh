@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmoshker <kmoshker@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: mosh <mosh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 03:57:16 by mosh              #+#    #+#             */
-/*   Updated: 2024/02/03 00:57:15 by kmoshker         ###   ########.fr       */
+/*   Updated: 2024/02/04 02:05:25 by mosh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,8 @@ size_t	ftprintf_helper(va_list ap, char format)
 		count += ft_putnbr_fd(va_arg(ap, int), 1);
 	else if (format == 'u')
 		count += ft_put_unsigned_nbr((unsigned int)va_arg(ap, unsigned int));
-	else if (format == 'x')
-		count += ft_puthex_small(va_arg(ap, int));
-	else if (format == 'X')
-		count += ft_puthex_big(va_arg(ap, int));
+	else if (format == 'x' || format == 'X')
+		count += ft_puthex(va_arg(ap, int), format);
 	else if (format == '%')
 		count += ft_putchar_fd('%', 1);
 	return (count);
@@ -116,9 +114,6 @@ int	ft_printf(const char *format, ...)
 // 	ft_printf("Int: %d\n", test_int);
 // 	ft_printf("Unsigned Int: %u\n", test_uint);
 // 	ft_printf("Pointer: %p\n", test_ptr);
-
-// 	ft_printf("test::  %s\n", "");
-// 	ft_printf("test::  %s\n", "\n");
 // 	return 0;
 // }
 // int main()

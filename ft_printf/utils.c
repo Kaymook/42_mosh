@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmoshker <kmoshker@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: mosh <mosh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 22:40:53 by kmoshker          #+#    #+#             */
-/*   Updated: 2024/02/02 22:45:08 by kmoshker         ###   ########.fr       */
+/*   Updated: 2024/02/04 01:52:37 by mosh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,36 +53,17 @@ size_t	ft_putptr_fd(uintptr_t ptr, int fd)
 	return (count);
 }
 
-size_t	ft_puthex_small(unsigned int num)
+size_t	ft_puthex(unsigned int num, char format)
 {
 	char	*hex_digits;
 	char	buff[10];
 	size_t	i;
 	size_t	count;
 
-	hex_digits = "0123456789abcdef";
-	i = 0;
-	count = 0;
-	if (num == 0)
-		return (ft_putchar_fd('0', 1));
-	while (num)
-	{
-		buff[i++] = hex_digits[num % 16];
-		num /= 16;
-	}
-	while (i--)
-		count += ft_putchar_fd(buff[i], 1);
-	return (count);
-}
-
-size_t	ft_puthex_big(unsigned int num)
-{
-	char	*hex_digits;
-	char	buff[10];
-	size_t	i;
-	size_t	count;
-
-	hex_digits = "0123456789ABCDEF";
+	if (format == 'x')
+		hex_digits = "0123456789abcdef";
+	else if (format == 'X')
+		hex_digits = "0123456789ABCDEF";
 	i = 0;
 	count = 0;
 	if (num == 0)
